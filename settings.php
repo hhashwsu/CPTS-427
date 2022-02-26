@@ -29,7 +29,7 @@ function wookitty_orders_sql_init() {
 		'log_source VARCHAR(32));';
 	dbDelta( $sql );
 
-	$sql = $wpdb->prepare( "SHOW TABLES LIKE %s ;", $wpdb->esc_like( $db_wookitty_settings_tbl ) );
+	$sql = $wpdb->prepare( 'SHOW TABLES LIKE %s ;', $wpdb->esc_like( $db_wookitty_settings_tbl ) );
 	$res = $wpdb->get_results( $sql );
 
 	$sql = 'CREATE TABLE IF NOT EXISTS' . $db_wookitty_settings_tbl . '(single_row INT NOT NULL PRIMARY KEY CHECK (single_row = 1),' .
@@ -38,8 +38,14 @@ function wookitty_orders_sql_init() {
 
 	// Populate the one and only settings row
 	if ( 0 == count( $res ) ) {
-		$sql = $wpdb->prepare( 'INSERT INTO %s (single_row, cats_autosync, rest_username, ' .
-		    'system_error,  error_mesg) VALUES (%d, %d, %s, %d, %s);', $db_wookitty_settings_tbl, 1, 0, 'wsupress_restuser', 0, '');
+		$sql = $wpdb->prepare( 
+			'INSERT INTO %s (single_row, cats_autosync, rest_username, system_error,  error_mesg) VALUES (%d, %d, %s, %d, %s);',
+			$db_wookitty_settings_tbl, 
+			1, 
+			0, 
+			'wsupress_restuser', 
+			0, 
+			'');
 		$res = $wpdb->get_results( $sql );
 		wookitty_log('WooKitty SQL tables created and initialized.');
 	}
