@@ -45,7 +45,7 @@ function wookitty_orders_sql_init() {
 			'wsupress_restuser',
 			0,
 			''
-		) 
+			)
 		);
 		wookitty_log( 'WooKitty SQL tables created and initialized.' );
 	}
