@@ -29,8 +29,7 @@ function wookitty_orders_sql_init() {
 		'log_source VARCHAR(32));';
 	dbDelta( $sql );
 
-	$sql = $wpdb->prepare( 'SHOW TABLES LIKE %s ;', $wpdb->esc_like( $db_wookitty_settings_tbl ) );
-	$res = $wpdb->get_results( $sql );  
+	$res = $wpdb->get_results( $wpdb->prepare( 'SHOW TABLES LIKE %s ;', $wpdb->esc_like( $db_wookitty_settings_tbl ) ) );
 
 	$sql = 'CREATE TABLE IF NOT EXISTS' . $db_wookitty_settings_tbl . '(single_row INT NOT NULL PRIMARY KEY CHECK (single_row = 1),' .
 		'cats_autosync BOOLEAN DEFAULT 0, rest_username VARCHAR(256) , system_error BOOLEAN, error_mesg VARCHAR(256));';
