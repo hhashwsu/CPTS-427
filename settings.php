@@ -23,18 +23,18 @@ function wookitty_orders_sql_init() {
 	// likely need to employ add_option() with test_db_version to do the ALTER statements.
 	$sql = 'CREATE TABLE IF NOT EXISTS ' . $db_wookitty_orders_tbl . ' (wc_order_id INT PRIMARY KEY, wookitty_sync_status VARCHAR(15), ' .
 		'wookitty_sync_time TIMESTAMP, wookitty_sync_details VARCHAR(60), cats_customer_num INT, cats_invoice_num INT);';
-	dbDelta( $sql ); 
+	dbDelta( $sql );
 
 	$sql = 'CREATE TABLE IF NOT EXISTS ' . $db_wookitty_logs_tbl . ' (log_timestamp TIMESTAMP, wookitty_log_mesg VARCHAR(256),' .
 		'log_source VARCHAR(32));';
-	dbDelta( $sql ); 
+	dbDelta( $sql );
 
 	$sql = $wpdb->prepare( 'SHOW TABLES LIKE %s ;', $wpdb->esc_like( $db_wookitty_settings_tbl ) );
-	$res = $wpdb->get_results( $sql );
+	$res = $wpdb->get_results( $sql ); 
 
 	$sql = 'CREATE TABLE IF NOT EXISTS' . $db_wookitty_settings_tbl . '(single_row INT NOT NULL PRIMARY KEY CHECK (single_row = 1),' .
 		'cats_autosync BOOLEAN DEFAULT 0, rest_username VARCHAR(256) , system_error BOOLEAN, error_mesg VARCHAR(256));';
-	dbDelta( $sql ); 
+	dbDelta( $sql );
 
 	// Populate the one and only settings row
 	if ( 0 == count( $res ) ) {
