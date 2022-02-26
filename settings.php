@@ -10,12 +10,12 @@
  */
 function wookitty_orders_sql_init() {
 	global $wpdb;
-	$db_wookitty_orders_tbl = $wpdb->prefix . 'wookitty_orders';       // WooKitty Order details (sync status and details)
-	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';           // Table to store actions performed by the plugin
+	$db_wookitty_orders_tbl   = $wpdb->prefix . 'wookitty_orders';     // WooKitty Order details (sync status and details)
+	$db_wookitty_logs_tbl     = $wpdb->prefix . 'wookitty_logs';       // Table to store actions performed by the plugin
 	$db_wookitty_settings_tbl = $wpdb->prefix . 'wookitty_settings';   // Configuration details related to WooKitty
 
 	// upgrade.php gives us dbDelta()
-	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 	// We do not know the database details of the WSU Press server so do not specify
 	// charsets or engine types, generic SQL is fine for our purposes.
@@ -36,15 +36,16 @@ function wookitty_orders_sql_init() {
 	dbDelta( $sql );
 
 	// Populate the one and only settings row
-	if ( 0 == count( $res ) ) {
-		$res = $wpdb->get_results( $wpdb->prepare(
-			'INSERT INTO %s (single_row, cats_autosync, rest_username, system_error,  error_mesg) VALUES (%d, %d, %s, %d, %s);',
-			$db_wookitty_settings_tbl,
-			1,
-			0,
-			'wsupress_restuser',
-			0,
-			''
+	if ( 0 === count( $res ) ) {
+		$res = $wpdb->get_results(
+			$wpdb->prepare(
+				'INSERT INTO %s (single_row, cats_autosync, rest_username, system_error,  error_mesg) VALUES (%d, %d, %s, %d, %s);',
+				$db_wookitty_settings_tbl,
+				1,
+				0,
+				'wsupress_restuser',
+				0,
+				''
 			)
 		);
 		wookitty_log( 'WooKitty SQL tables created and initialized.' );
