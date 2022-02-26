@@ -1,0 +1,25 @@
+{
+	"name": "wookitty",
+	"description": "",
+	"homepage": "https://github.com/WSUCptSCapstone-Fall2021Spring2022/wsupress-interfacetools",
+	"license": "GPL-3.0",
+	"support": {
+		"issues": "https://github.com/WSUCptSCapstone-Fall2021Spring2022/wsupress-interfacetools/issues"
+	},
+	"config": {
+		"platform": {
+			"php": "7.3"
+		},
+		"process-timeout": 0
+	},
+	"require": {},
+	"require-dev" : {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+		"wp-coding-standards/wpcs": "2.1.1",
+	},
+	"scripts": {
+		"phpcs": [
+			"phpcs --extensions=php -s -p"
+		],
+	}
+}
