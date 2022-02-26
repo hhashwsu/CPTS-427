@@ -3,17 +3,16 @@
  * License: GPLv3, see LICENSE file in top directory
  * WC_extension/sql-init.php
  *
- * On plugin load check to see if WooKitty tables 
- * exist in the database or not. If a table exists 
+ * On plugin load check to see if WooKitty tables
+ * exist in the database or not. If a table exists
  * then leave it alone and if not then create it.
  *
  */
-function wookitty_orders_sql_init()
-{
+function wookitty_orders_sql_init() {
 	global $wpdb;
-	$db_wookitty_orders_tbl = $wpdb->prefix . 'wookitty_orders';		// WooKitty Order details (sync status and details)
-	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';			// Table to store actions performed by the plugin
-	$db_wookitty_settings_tbl = $wpdb->prefix . 'wookitty_settings';	// Configuration details related to WooKitty
+	$db_wookitty_orders_tbl = $wpdb->prefix . 'wookitty_orders';       // WooKitty Order details (sync status and details)
+	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';           // Table to store actions performed by the plugin
+	$db_wookitty_settings_tbl = $wpdb->prefix . 'wookitty_settings';   // Configuration details related to WooKitty
 
 	// upgrade.php gives us dbDelta()
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -43,7 +42,7 @@ function wookitty_orders_sql_init()
 		    "system_error,  error_mesg) VALUES (%d, %d, %s, %d, %s);", 1, 0, "wsupress_restuser", 0, "");
 		$res = $wpdb->get_results( $sql );
 		wookitty_log("WooKitty SQL tables created and initialized.");
-	} 
+	}
 
 	wookitty_log("WooKitty plugin activated.");
 }
