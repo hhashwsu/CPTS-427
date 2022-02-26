@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"phpcs": [
-			"phpcs --extensions=php -s -p"
+			"~/.composer/vendor/bin/phpcs --extensions=php -s -p"
 		]
 	}
 }
