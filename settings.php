@@ -21,7 +21,7 @@ function wookitty_orders_sql_init() {
 	// charsets or engine types, generic SQL is fine for our purposes.
 	// N.B.: This gives us persistance and no errors on reload, but for an upgrade with table changes we will
 	// likely need to employ add_option() with test_db_version to do the ALTER statements.
-	$sql = "CREATE TABLE IF NOT EXISTS $db_wookitty_orders_tbl (wc_order_id INT PRIMARY KEY, wookitty_sync_status VARCHAR(15), ".
+	$sql = "CREATE TABLE IF NOT EXISTS $db_wookitty_orders_tbl (wc_order_id INT PRIMARY KEY, wookitty_sync_status VARCHAR(15), " .
 	    "wookitty_sync_time TIMESTAMP, wookitty_sync_details VARCHAR(60), cats_customer_num INT, cats_invoice_num INT);";
 	dbDelta( $sql );
 
