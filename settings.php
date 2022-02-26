@@ -38,7 +38,7 @@ function wookitty_orders_sql_init() {
 
 	// Populate the one and only settings row
 	if ( 0 == count( $res ) ) {
-		$sql = $wpdb->prepare( 
+		$sql = $wpdb->prepare(
 			'INSERT INTO %s (single_row, cats_autosync, rest_username, system_error,  error_mesg) VALUES (%d, %d, %s, %d, %s);',
 			$db_wookitty_settings_tbl,
 			1,
@@ -48,8 +48,8 @@ function wookitty_orders_sql_init() {
 			''
 		);
 		$res = $wpdb->get_results( $sql );
-		wookitty_log('WooKitty SQL tables created and initialized.');
+		wookitty_log( 'WooKitty SQL tables created and initialized.' );
 	}
 
-	wookitty_log('WooKitty plugin activated.');
+	wookitty_log( 'WooKitty plugin activated.' );
 }
