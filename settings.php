@@ -29,11 +29,11 @@ function wookitty_orders_sql_init() {
 		'log_source VARCHAR(32));';
 	dbDelta( $sql );
 
-	$sql = $wpdb->prepare( 'SHOW TABLES LIKE\'%s\' ;', $db_wookitty_settings_tbl);
+	$sql = $wpdb->prepare( "SHOW TABLES LIKE %s ;", $wpdb->esc_like( $db_wookitty_settings_tbl ) );
 	$res = $wpdb->get_results( $sql );
 
 	$sql = 'CREATE TABLE IF NOT EXISTS' . $db_wookitty_settings_tbl . '(single_row INT NOT NULL PRIMARY KEY CHECK (single_row = 1),' .
-	    'cats_autosync BOOLEAN DEFAULT 0, rest_username VARCHAR(256) , system_error BOOLEAN, error_mesg VARCHAR(256));';
+		'cats_autosync BOOLEAN DEFAULT 0, rest_username VARCHAR(256) , system_error BOOLEAN, error_mesg VARCHAR(256));';
 	dbDelta( $sql );
 
 	// Populate the one and only settings row
