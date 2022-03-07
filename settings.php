@@ -15,7 +15,7 @@ function wookitty_orders_sql_init() {
 	$db_wookitty_settings_tbl = $wpdb->prefix . 'wookitty_settings';   // Configuration details related to WooKitty
 
 	// upgrade.php gives us dbDelta()
-	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+	require_once ABSPATH . 'wp-admin/includes/upgrade.php'; 
 
 	// We do not know the database details of the WSU Press server so do not specify
 	// charsets or engine types, generic SQL is fine for our purposes.
