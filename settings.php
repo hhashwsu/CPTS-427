@@ -1,28 +1,24 @@
 <?php
-if ( isset( $_POST['action'] ) ) {
-	/*$nonce_name = $_POST['action'] . '_nonce'
-	if ( ! isset($_POST[ $nonce_name ] ) ) {
-		echo 'nonce_name is NOT set: ' . $nonce_name;
-	} else {
-		echo 'nonce_name is set: ' . $nonce_name;
 
-	$nonce_val = $_POST[ $nonce_name ];*/
-	if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
-		echo 'We VERIFIED';
-	} else {
-		echo 'We did NOT verify.';
+function wookitty_test() {
+	if ( isset( $_POST['action'] ) ) {
+		if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
+			echo 'We VERIFIED';
+		} else {
+			echo 'We did NOT verify.';
+		}
+		switch ( $_POST['action'] ) {
+			case 'settings':
+				$msg = 'WooKitty Settings Updated.';
+				break;	
+			case 'bulk_upload':
+				$msg = 'Bulk upload processed.';
+				break;
+			case 'label_print':
+				$msg = 'Label Printing activated.';
+                	        break;
+        	}
 	}
-	switch ( $_POST['action'] ) {
-		case 'settings':
-			$msg = 'WooKitty Settings Updated.';
-			break;
-                case 'bulk_upload':
-                        $msg = 'Bulk upload processed.';
-                        break;
-                case 'label_print':
-                        $msg = 'Label Printing activated.';
-                        break;
-        }
 }
 
 function wookitty_orders_sql_init() {
