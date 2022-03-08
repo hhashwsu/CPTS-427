@@ -11,13 +11,14 @@
  */
 
 // XXX: Passes code compliance checks with php7.3, but not with php7.4
-if ( isset( $_POST['action'] ) ) {
-	if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
-		echo 'We VERIFIED';
-	} else {
-		echo 'We did NOT verify.';
-	}
-	switch ( $_POST['action'] ) {
+if ( 1 ) { // empty( $_POST['action'] ) ) {
+	// if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
+	//	echo 'We VERIFIED';
+	//} else {
+	//	echo 'We did NOT verify.';
+	//}
+	//switch ( $_POST['action'] ) {
+	switch ( 'settings' ) {
 		case 'settings':
 			$msg = 'WooKitty Settings Updated.';
 			break;
@@ -30,8 +31,9 @@ if ( isset( $_POST['action'] ) ) {
 	}
 }
 
-if ( isset( $_GET['action'] ) ) {
-	switch ( $_GET['action'] ) {
+if ( 1 ) { // empty( $_GET['action'] ) ) {
+	// switch ( $_GET['action'] ) {
+	switch ( 'logs_50' ) {
 		case 'logs_50':
 			$msg = 'Show last 50 logs.';
 			break;
@@ -62,8 +64,9 @@ function wookitty_get_logs() {
 	$logs                 = 50;
 	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';
 
-	if ( isset( $_GET['logs'] ) ) {
-		$logs = $_GET['logs'];
+	//if ( $_GET && array_key_exists( $_GET, 'logs' ) ) {
+	if ( null !== @$_GET['logs'] ) {
+		$logs = 20; // $logs = $_GET['logs'];
 	}
 
 	$res = $wpdb->get_results(
@@ -168,4 +171,4 @@ if ( 0 !== wookitty_get_setting( 'cats_autosync' ) ) {
 
 	// XXX Temp debugging
 	echo "$msg"; // phpcs:ignore
-	print_r( $_POST ); // phpcs:ignore
+	//print_r( $_POST ); // phpcs:ignore

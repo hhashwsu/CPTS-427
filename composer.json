@@ -8,13 +8,13 @@
 	},
 	"config": {
 		"platform": {
-			"php": "7.3"
+			"php": "7.4"
 		},
 		"process-timeout": 0
 	},
 	"require": {},
 	"require-dev" : {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
 		"wp-coding-standards/wpcs": "2.1.1"
 	},
 	"scripts": {
