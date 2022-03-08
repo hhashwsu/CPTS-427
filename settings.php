@@ -1,13 +1,42 @@
 <?php
 /*
  * License: GPLv3, see LICENSE file in top directory
- * WC_extension/sql-init.php
+ * WC_extension/settings.php
  *
- * On plugin load check to see if WooKitty tables
- * exist in the database or not. If a table exists
- * then leave it alone and if not then create it.
+ * Centralized WebUI integrated into WordPress
+ * for settings related to WooKitty plugin with a
+ * Log Viewer for seeing activity related to
+ * plugin and client daemon.
  *
  */
+echo '<center><h1><u>WooKitty</u></h1></center>';
+
+if ( isset( $_POST['action'] ) ) {
+        /*$nonce_name = $_POST['action'] . '_nonce';
+        if ( ! isset($_POST[ $nonce_name ] ) ) {
+                echo 'nonce_name is NOT set: ' . $nonce_name;
+        } else {
+                echo 'nonce_name is set: ' . $nonce_name;
+
+                $nonce_val = $_POST[ $nonce_name ];*/
+        if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
+                echo 'We VERIFIED';
+        } else {
+                echo 'We did NOT verify.';
+        }
+        switch ( $_POST['action'] ) {
+                case 'settings':
+                        $msg = 'WooKitty Settings Updated.';
+                        break;
+                case 'bulk_upload':
+                        $msg = 'Bulk upload processed.';
+                        break;
+                case 'label_print':
+                        $msg = 'Label Printing activated.';
+                        break;
+        }
+}
+
 function wookitty_orders_sql_init() {
 	global $wpdb;
 	$db_wookitty_orders_tbl   = $wpdb->prefix . 'wookitty_orders';     // WooKitty Order details (sync status and details)
