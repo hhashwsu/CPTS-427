@@ -65,7 +65,7 @@ function wookitty_get_logs() {
 	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';
 
 	//if ( $_GET && array_key_exists( $_GET, 'logs' ) ) {
-	if ( isset( @$_GET['logs'] ) ) {
+	if ( null !== @$_GET['logs'] ) {
 		$logs = 20; // $logs = $_GET['logs'];
 	}
 
