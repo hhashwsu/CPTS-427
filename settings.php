@@ -1,5 +1,5 @@
 <?php
-
+/*
 function wookitty_test() {
 	if ( isset( $_POST['action'] ) ) {
 		if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
@@ -19,7 +19,7 @@ function wookitty_test() {
                 	        break;
         	}
 	}
-}
+}*/
 
 function wookitty_orders_sql_init() {
 	global $wpdb;
