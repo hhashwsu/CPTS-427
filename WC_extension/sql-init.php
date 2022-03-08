@@ -9,13 +9,13 @@
  *
  */
 function wookitty_orders_sql_init() {
-	global $wpdb; 
+	global $wpdb;
 	$db_wookitty_orders_tbl   = $wpdb->prefix . 'wookitty_orders';     // WooKitty Order details (sync status and details)
 	$db_wookitty_logs_tbl     = $wpdb->prefix . 'wookitty_logs';       // Table to store actions performed by the plugin
 	$db_wookitty_settings_tbl = $wpdb->prefix . 'wookitty_settings';   // Configuration details related to WooKitty
 
 	// upgrade.php gives us dbDelta()
-	require_once ABSPATH . 'wp-admin/includes/upgrade.php'; 
+	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 	// We do not know the database details of the WSU Press server so do not specify
 	// charsets or engine types, generic SQL is fine for our purposes.
