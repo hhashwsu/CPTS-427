@@ -10,13 +10,13 @@ function wookitty_test() {
 		switch ( $_POST['action'] ) {
 			case 'settings':
 				$msg = 'WooKitty Settings Updated.';
-				break;	
+				break;
 			case 'bulk_upload':
 				$msg = 'Bulk upload processed.';
 				break;
 			case 'label_print':
 				$msg = 'Label Printing activated.';
-                	        break;
+				break;
         	}
 	}
 }*/
