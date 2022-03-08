@@ -64,9 +64,9 @@ function wookitty_get_logs() {
 	$logs                 = 50;
 	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';
 
-	if ( isset( $_GET['logs'] ) ) {
-		$logs = $_GET['logs'];
-	}
+	//if ( isset( $_GET['logs'] ) ) {
+	//	$logs = $_GET['logs'];
+	//}
 
 	$res = $wpdb->get_results(
 		$wpdb->prepare(
@@ -170,4 +170,4 @@ if ( 0 !== wookitty_get_setting( 'cats_autosync' ) ) {
 
 	// XXX Temp debugging
 	echo "$msg"; // phpcs:ignore
-	print_r( $_POST ); // phpcs:ignore
+	//print_r( $_POST ); // phpcs:ignore
