@@ -18,7 +18,7 @@ if ( 1 ) { // empty( $_POST['action'] ) ) {
 	//	echo 'We did NOT verify.';
 	//}
 	//switch ( $_POST['action'] ) {
-	switch ( 'settings' )  {
+	switch ( 'settings' ) {
 		case 'settings':
 			$msg = 'WooKitty Settings Updated.';
 			break;
@@ -31,8 +31,9 @@ if ( 1 ) { // empty( $_POST['action'] ) ) {
 	}
 }
 
-if ( empty( $_GET['action'] ) ) {
-	switch ( $_GET['action'] ) {
+if ( 1 ) { // empty( $_GET['action'] ) ) {
+	// switch ( $_GET['action'] ) {
+	switch ( 'logs_50' ) {
 		case 'logs_50':
 			$msg = 'Show last 50 logs.';
 			break;
