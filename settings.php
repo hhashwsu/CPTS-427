@@ -1,5 +1,15 @@
 <?php
 /*
+ * License: GPLv3, see LICENSE file in top directory
+ * WC_extension/settings.php
+ *
+ * Centralized WebUI integrated into WordPress
+ * for settings related to WooKitty plugin with a
+ * Log Viewer for seeing activity related to
+ * plugin and client daemon.
+ *
+ */
+/*
 function wookitty_test() {
 	if ( isset( $_POST['action'] ) ) {
 		if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
