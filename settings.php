@@ -1,6 +1,4 @@
 <?php
-echo '<center><h1><u>WooKitty</u></h1></center>';
-
 if ( isset( $_POST['action'] ) ) {
 	/*$nonce_name = $_POST['action'] . '_nonce'
 	if ( ! isset($_POST[ $nonce_name ] ) ) {
