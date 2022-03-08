@@ -8,7 +8,7 @@
  */
 
 // Insert log entries into WooKitty log table for administrative viewing
-function wookitty_log( $log_msg ) {
+function wookitty_log( $log_msg ) { 
 	global $wpdb;
 	$db_wookitty_log_tbl = $wpdb->prefix . 'wookitty_logs';
 
