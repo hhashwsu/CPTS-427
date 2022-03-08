@@ -12,12 +12,13 @@
 
 // XXX: Passes code compliance checks with php7.3, but not with php7.4
 if ( 1 ) { // empty( $_POST['action'] ) ) {
-	if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
-		echo 'We VERIFIED';
-	} else {
-		echo 'We did NOT verify.';
-	}
-	switch ( $_POST['action'] ) {
+	// if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
+	//	echo 'We VERIFIED';
+	//} else {
+	//	echo 'We did NOT verify.';
+	//}
+	//switch ( $_POST['action'] ) {
+	switch ( 'settings' )  {
 		case 'settings':
 			$msg = 'WooKitty Settings Updated.';
 			break;
