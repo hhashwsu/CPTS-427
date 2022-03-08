@@ -64,8 +64,9 @@ function wookitty_get_logs() {
 	$logs                 = 50;
 	$db_wookitty_logs_tbl = $wpdb->prefix . 'wookitty_logs';
 
-	if ( $_GET && array_key_exists( $_GET, 'logs' ) ) {
-		$logs = 20;//	$logs = $_GET['logs'];
+	//if ( $_GET && array_key_exists( $_GET, 'logs' ) ) {
+	if ( isset( @$_GET['logs'] ) ) {
+		$logs = 20; // $logs = $_GET['logs'];
 	}
 
 	$res = $wpdb->get_results(
