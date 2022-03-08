@@ -10,29 +10,26 @@
  *
  */
 
-function wookitty_test() {
-	if ( isset( $_POST['action'] ) ) { // phpcs:ignore
-		/*
-		if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
-			echo 'We VERIFIED';
-		} else {
-			echo 'We did NOT verify.';
-		}
-		switch ( $_POST['action'] ) {
-			case 'settings':
-				$msg = 'WooKitty Settings Updated.';
-				break;
-			case 'bulk_upload':
-				$msg = 'Bulk upload processed.';
-				break;
-			case 'label_print':
-				$msg = 'Label Printing activated.';
-				break;
-		}
-		*/
+// XXX: Passes code compliance checks with php7.3, but not with php7.4
+if ( isset( $_POST['action'] ) ) { 
+	if ( wp_verify_nonce( $_POST['wookitty_config_nonce'], 'wookitty_config' ) ) {
+		echo 'We VERIFIED';
+	} else {
+		echo 'We did NOT verify.';
 	}
-	
+	switch ( $_POST['action'] ) {
+		case 'settings':
+			$msg = 'WooKitty Settings Updated.';
+			break;
+		case 'bulk_upload':
+			$msg = 'Bulk upload processed.';
+			break;
+		case 'label_print':
+			$msg = 'Label Printing activated.';
+			break;
+	}
 }
+
 
 function wookitty_orders_sql_init() {
 	global $wpdb;
